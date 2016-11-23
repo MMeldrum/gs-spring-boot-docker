@@ -16,3 +16,11 @@ endpoints:
     enabled: true
   shutdown:
     enabled: true
+
+
+security:
+  user:
+    name: admin
+    password: password
+  basic:
+    enabled: false

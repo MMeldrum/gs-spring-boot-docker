@@ -18,7 +18,7 @@
     </parent>
 
     <properties>
-        <docker.image.prefix>springio</docker.image.prefix>
+        <docker.image.prefix>mmeldrum</docker.image.prefix>
         <java.version>1.8</java.version>
     </properties>
 
@@ -34,6 +34,7 @@
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>0.4.11</version>
                 <configuration>
+                    <pushImage>false</pushImage>
                     <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
                     <dockerDirectory>src/main/docker</dockerDirectory>
                     <resources>
@@ -50,6 +51,14 @@
     </build>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
